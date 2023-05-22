@@ -4,9 +4,10 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 
 @Entity
+@Table(name = "funcionarios")
 public class Funcionario {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
     @Column
     private String nome;
