@@ -11,9 +11,9 @@ public class Aluno {
     private long id;
     @Column(nullable = false, length = 200)
     private String nome;
-    private int cpf;
-    private int dataNascimento;
-    private int telefone;
+    private String cpf;
+    private LocalDate dataNascimento;
+    private String telefone;
     private String email;
     private String endereco;
     private String municipio;

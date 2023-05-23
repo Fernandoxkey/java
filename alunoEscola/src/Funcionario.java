@@ -11,9 +11,9 @@ public class Funcionario {
     private long id;
     @Column
     private String nome;
-    private int cpf;
-    private int dataNascimento;
-    private int telefone;
+    private String cpf;
+    private LocalDate dataNascimento;
+    private String telefone;
     private String email;
     private String endereco;
     private String municipio;
