@@ -18,14 +18,8 @@ public class Login {
             System.out.println("Login realizado com sucesso!");
             // Continuar com a lógica do sistema após o login bem-sucedido
         } else {
-            System.out.println("Login ou senha inválidos. Deseja redefinir a senha? (s/n)");
+            System.out.println("Login ou senha inválidos.");
             String opcao = scanner.nextLine();
-
-            if (opcao.equalsIgnoreCase("s")) {
-                redefinirSenha();
-            } else {
-                System.out.println("Saindo do sistema de login...");
-            }
         }
     }
 
@@ -33,20 +27,5 @@ public class Login {
         return login.equals(LOGIN_PADRAO) && senha.equals(SENHA_PADRAO);
     }
 
-    private static void redefinirSenha() {
-        Scanner scanner = new Scanner(System.in);
-
-        System.out.print("Digite o login: ");
-        String login = scanner.nextLine();
-
-        if (login.equals(LOGIN_PADRAO)) {
-            System.out.print("Digite a nova senha: ");
-            String novaSenha = scanner.nextLine();
-            SENHA_PADRAO = novaSenha; // Atualiza a senha padrão com a nova senha digitada
-            System.out.println("Senha redefinida com sucesso!");
-        } else {
-            System.out.println("Login inválido. Não é possível redefinir a senha.");
-        }
-    }
 
 }
