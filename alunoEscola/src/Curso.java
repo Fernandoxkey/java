@@ -1,3 +1,5 @@
+package alunoEscola;
+
 import jakarta.persistence.*;
 
 
