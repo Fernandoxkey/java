@@ -1,3 +1,8 @@
+package alunoEscola;
+
+import telas.TelaAluno;
+import telas.TelaFuncionarios;
+
 import java.util.Scanner;
 
 public class Login {
@@ -8,18 +13,53 @@ public class Login {
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("Bem-vindo ao sistema de login!");
-        System.out.print("Login: ");
-        String login = scanner.nextLine();
+        boolean tentarLogin = true;
+        while (tentarLogin) {
+            System.out.print("Login: ");
+            String login = scanner.nextLine();
 
-        System.out.print("Senha: ");
-        String senha = scanner.nextLine();
+            System.out.print("Senha: ");
+            String senha = scanner.nextLine();
 
-        if (validarLogin(login, senha)) {
-            System.out.println("Login realizado com sucesso!");
-            // Continuar com a lógica do sistema após o login bem-sucedido
-        } else {
-            System.out.println("Login ou senha inválidos.");
-            String opcao = scanner.nextLine();
+            if (validarLogin(login, senha)) {
+                exibirMenu(scanner);
+                break;
+            } else {
+                System.out.println("Usuario ou senha invalidos. Deseja tentar novamente? [s/n]");
+                var opcao = scanner.nextLine();
+                if (!opcao.toLowerCase().equals("s")) {
+                    tentarLogin = false;
+                }
+            }
+        }
+    }
+
+    private static void exibirMenu(Scanner scanner) {
+        System.out.println("Selecione opção desejada:");
+        System.out.println("1 - Cadastro de Aluno");
+        System.out.println("2 - Cadastro de Funcionarios");
+        System.out.println("3 - Cadastro de Curso");
+        System.out.println("4 - Cadastro de Materia");
+        System.out.println("5 - Cadastro de Semestre");
+        System.out.println("6 - Cadastro de Turma");
+        var opcao = scanner.nextLine();
+        switch (opcao) {
+            case "1":
+                TelaAluno.executar(scanner);
+                break;
+            case "2":
+                TelaFuncionarios.executar(scanner);
+                break;
+            case "3":
+                break;
+            case "4":
+                break;
+            case "5":
+                break;
+            case "6":
+                break;
+            default:
+                System.out.println("Opcao Invalida!");
         }
     }
 
